@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<link type="text/css" href="{% static 'c2.css' %}" rel="stylesheet">
+
+<div class="pdf-upoad-wrapper" >
+    <div style="flex:1">
+        
+            <form id="file_form" enctype="multipart/form-data"  method="post"  class="form-container"  action="new-judgement" >{% csrf_token %}
+                
+                
+                <!-- <div style="display: flex;gap: 1rem;flex-direction: column;"> -->
+                    <input type="file"  name="judgement" id="judgement">
+                    
+                    <button    class="btn btn-primary submit-judgement"  type="submit" >Submit</button>
+                <!-- </div> -->
+                
+            </form>
+       
+    </div>
+    <div style="flex:2;height: 70vh;overflow: auto;">
+        <div>
+            <label for="textarea">Summary</label>
+            <textarea rows="5" class="textarea-summary"></textarea>
+        </div>
+        <div class="NER-keywords">
+            
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}
